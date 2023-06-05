@@ -1,0 +1,73 @@
+:root {
+	--orange: #d48620;
+	--offwhite: #eaebed;
+	--brown: #493843;
+	--green: #61988e;
+	--greengrey: #a0b2a6;
+}
+@font-face {
+	font-family: builtTilting;
+	src: url('../fonts/built\ titling\ rg.otf');
+}
+#page-con {
+	font-family: 'Didact Gothic', serif;
+	background-image: url('../images/fan pattern.png');
+	background-size: 130px;
+	background-color: var(--green);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+#main {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex: 1;
+	gap: 2rem;
+	padding: 2rem;
+}
+#logo {
+	font-family: builtTilting, sans-serif;
+	font-weight: bold;
+	font-size: 8rem;
+	width: min-content;
+	line-height: 1em;
+	text-shadow: 5px 5px var(--offwhite);
+}
+#sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+#sidebar button {
+	/* background: var(--offwhite); */
+	/* padding: 5px 8px; */
+	background: none;
+	border: none;
+	font-weight: bold;
+	font-size: 1.5rem;
+	text-align: left;
+	width: min-content;
+}
+#sidebar button:hover,
+.btn-active {
+	margin-left: 12px;
+	position: relative;
+}
+.btn-active:before {
+	content: '・';
+	position: absolute;
+	inset: 0 0 0 -20px;
+}
+#main-content {
+	background-color: var(--offwhite);
+	flex: 1;
+	padding: 2rem;
+}
+footer {
+	text-align: center;
+	color: grey;
+	background: var(--offwhite);
+	padding: 5px 0;
+	font-weight: bold;
+}
