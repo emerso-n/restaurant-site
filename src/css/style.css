@@ -1,73 +1,194 @@
 :root {
-	--orange: #d48620;
-	--offwhite: #eaebed;
-	--brown: #493843;
-	--green: #61988e;
-	--greengrey: #a0b2a6;
+	--grey: #a0a0a0;
+	--offwhite: rgb(238, 238, 238);
+	--shadowcolor: rgba(0, 0, 0, 0.4);
+	--boxshadow: 6px 4px 3px var(--shadowcolor);
+	--titlefont: 'Bebas Neue', sans-serif;
+	--bodyfont: 'Catamaran', sans-serif;
+	--seriffont: 'Copse', serif;
 }
 @font-face {
 	font-family: builtTilting;
 	src: url('../fonts/built\ titling\ rg.otf');
 }
 #page-con {
-	font-family: 'Didact Gothic', serif;
-	background-image: url('../images/fan pattern.png');
-	background-size: 130px;
-	background-color: var(--green);
+	background-color: var(--grey);
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	font-family: var(--bodyfont);
 }
 #main {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex: 1;
-	gap: 2rem;
-	padding: 2rem;
-}
-#logo {
-	font-family: builtTilting, sans-serif;
-	font-weight: bold;
-	font-size: 8rem;
-	width: min-content;
-	line-height: 1em;
-	text-shadow: 5px 5px var(--offwhite);
-}
-#sidebar {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	flex: 1;
 }
-#sidebar button {
-	/* background: var(--offwhite); */
-	/* padding: 5px 8px; */
-	background: none;
-	border: none;
-	font-weight: bold;
-	font-size: 1.5rem;
-	text-align: left;
-	width: min-content;
+#page-header {
+	display: flex;
 }
-#sidebar button:hover,
-.btn-active {
-	margin-left: 12px;
+.header-stripe {
+	background: linear-gradient(
+		black 0%,
+		black 33%,
+		white 33%,
+		white 66%,
+		black 66%
+	);
+	margin: 1rem;
+	flex: 1;
 	position: relative;
 }
-.btn-active:before {
-	content: '・';
+.header-stripe:before {
+	content: '';
 	position: absolute;
-	inset: 0 0 0 -20px;
+	inset: 0 0 0 0;
+	border: 4.8rem solid red;
+	border-color: transparent transparent transparent var(--grey);
+}
+.header-stripe:last-of-type:before {
+	border-color: transparent var(--grey) transparent transparent;
+}
+#logo {
+	font-family: var(--titlefont);
+	font-size: 10rem;
+	text-align: center;
+	text-shadow: 5px 4px var(--offwhite);
+	width: 4.5em;
+}
+nav {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0 1rem;
+}
+nav button {
+	font-family: var(--titlefont);
+	font-size: 3.5rem;
+	border: none;
+	width: 4em;
+}
+button:hover {
+	background-color: var(--offwhite);
+}
+button:not(.btn-active):hover {
+	box-shadow: var(--boxshadow);
+	background-color: white;
+}
+.btn-active {
+	box-shadow: var(--boxshadow);
+	/* background-color: white; */
 }
 #main-content {
-	background-color: var(--offwhite);
 	flex: 1;
+	margin: 0 7rem;
+	box-shadow: var(--boxshadow);
+	display: flex;
+}
+
+/*main homepage*/
+.main-homepage {
+	background-image: url('../images/homepage.jpg');
+	background-size: cover;
+	filter: saturate(30%);
+}
+#fill_con {
+	flex: 2;
+}
+#text_con {
+	color: white;
+	background: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 70%);
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 3rem;
+}
+h1 {
+	font-family: var(--titlefont);
+	font-size: 8.5rem;
+	line-height: 0.9em;
+	margin: 0;
+}
+#text_con p:first-of-type {
+	font-family: var(--seriffont);
+	font-size: 4rem;
+	line-height: 3rem;
+}
+#text_con p:last-of-type {
+	font-family: var(--bodyfont);
+	font-weight: 100;
+	font-size: 23px;
+	height: 100%;
+	flex: 1;
+	display: flex;
+	padding-bottom: 4em;
+	align-items: center;
+}
+
+/*main menu*/
+.main-menu {
+	background-color: #d8d8d8;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 4rem;
+	gap: 2rem;
+}
+.menu-side {
+	background: linear-gradient(
+		90deg,
+		black 0%,
+		black 33%,
+		white 33%,
+		white 66%,
+		black 66%
+	);
+	width: 12rem;
+	position: relative;
+}
+.menu-side:before {
+	content: '';
+	position: absolute;
+	inset: 0 0 0 0;
+	border: 6rem solid transparent;
+	border-color: transparent transparent #d8d8d8 transparent;
+}
+#menu-items_con {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+.menu-item {
+	background-color: white;
+	padding: 1.5rem 2rem;
+	text-align: center;
+}
+.item-name {
+	font-weight: bold;
+	font-size: 2.5rem;
+	line-height: 0.8em;
+}
+.item-desc {
+	font-size: 1.5rem;
+}
+
+/*about us*/
+.aboutus-main {
+	background-image: url('../images/aboutus.jpg');
+	background-size: cover;
+	filter: saturate(50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: inset 0px 0px 100px black;
+}
+#aboutus-text {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: var(--offwhite);
+	width: 25em;
+	font-size: 1.75rem;
 	padding: 2rem;
 }
+
 footer {
+	margin: 1rem 0;
+	font-weight: 400;
 	text-align: center;
-	color: grey;
-	background: var(--offwhite);
-	padding: 5px 0;
-	font-weight: bold;
 }
