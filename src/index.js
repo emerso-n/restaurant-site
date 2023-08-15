@@ -5,12 +5,13 @@ import './css/style.css'
 
 const pageCon = CreateElement(document.body, { id: 'page-con' })
 
-const main = CreateElement(pageCon, { id: 'main' })
-const pageheader = CreateElement(main, { id: 'page-header' })
+const pageheader = CreateElement(pageCon, { id: 'page-header' })
 CreateElement(pageheader, { classList: 'header-stripe' })
 CreateElement(pageheader, { innerHTML: 'Restaurant', id: 'logo' })
 CreateElement(pageheader, { classList: 'header-stripe' })
 
+// const navmain = CreateElement(main, { id: 'nav_main' })
+const main = CreateElement(pageCon, { id: 'main' })
 const navbtns = CreateElement(main, { type: 'nav', id: 'nav' })
 const homebtn = CreateElement(navbtns, { type: 'button', innerHTML: 'Home', classList: 'btn-active' })
 const menubtn = CreateElement(navbtns, { type: 'button', innerHTML: 'Menu' })
@@ -37,7 +38,6 @@ function changepage (e) {
     case 'About Us':
       aboutus()
       break
-
     default:
       break
   }
